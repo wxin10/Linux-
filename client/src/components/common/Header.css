@@ -1,0 +1,17 @@
+/* Header组件的样式 */
+.header {
+  background-color: #007bff;
+  color: rgb(0, 0, 0);
+}
+
+.navbar-brand {
+  color: rgb(0, 0, 0) !important;
+}
+
+.nav-link {
+  color: rgb(0, 0, 0) !important; /* 设置导航链接的颜色为白色 */
+}
+
+.nav-link:hover {
+  color: #ffcc00 !important; /* 设置导航链接悬停时的颜色为黄色 */
+}

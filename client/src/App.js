@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Header from "./components/common/Header";
@@ -17,24 +17,18 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Switch>
-          <Route path="/login" component={Login} />{" "}
-          <Route path="/register" component={Register} />{" "}
-          <PrivateRoute
-            path="/dashboard/student"
-            component={StudentDashboard}
-          />{" "}
-          <PrivateRoute
-            path="/dashboard/teacher"
-            component={TeacherDashboard}
-          />{" "}
-          <PrivateRoute path="/courses" component={CourseList} />{" "}
-          <PrivateRoute path="/course/:id" component={CourseDetail} />{" "}
-          <PrivateRoute path="/add-course" component={AddCourse} />{" "}
-          <Route path="/" exact component={CourseList} />{" "}
-        </Switch>{" "}
+        <Routes>
+          <Route path="/" element={<CourseList />} exact />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard/student" element={<PrivateRoute><StudentDashboard /></PrivateRoute>} />
+          <Route path="/dashboard/teacher" element={<PrivateRoute><TeacherDashboard /></PrivateRoute>} />
+          <Route path="/courses" element={<CourseList />} />
+          <Route path="/course/:id" element={<CourseDetail />} />
+          <Route path="/add-course" element={<PrivateRoute><AddCourse /></PrivateRoute>} />
+        </Routes>
         <Footer />
-      </div>{" "}
+      </div>
     </Router>
   );
 }

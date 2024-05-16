@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>在线教育平台</title>
-    <!-- 引入外部的 CSS 文件或 Web 字体 -->
+    
+    <!-- Meta 标签 -->
+    <meta name="description" content="一个现代化的在线教育平台，提供多种课程和学习资源。">
+    <meta name="keywords" content="在线教育, 教育平台, 在线课程, 学习">
+    <meta name="author" content="您的名字">
+    <meta name="robots" content="index, follow">
+    
+    <!-- CSS 链接 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-DyZ88mC6Up2uqS57v54G8WAsSgNR9i6DtOEG6kV8XxN30J5hOQKyzIF77LY2QFEJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-material-ui/material-ui.min.css">
+    <link rel="icon" href="./favicon.ico" />
+    
+    <style>
+        body {
+            font-family: 'Microsoft Yahei', sans-serif;
+        }
+    </style>
+    
+    <!-- JavaScript 脚本 -->
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCL2QdM3pjt8-sOnb8Rb5iXy1j1iJ6PRsf1LfKvFJ8lWUE00s/2" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <!-- 这里可以添加更多的 meta 标签、CSS 链接或者 JavaScript 脚本 -->
 </head>
 
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>您需要启用 JavaScript 来运行此应用。</noscript>
     <div id="root"></div>
     <!-- 这里是 React 应用的挂载点 -->
 
@@ -21,8 +41,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     <!-- 可以包括其他 JavaScript 库或框架 -->
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 例如，使用 SweetAlert2 显示一个欢迎提示
+            Swal.fire({
+                title: '欢迎!',
+                text: '欢迎来到我们的在线教育平台!',
+                icon: 'success',
+                confirmButtonText: '开始学习'
+            });
+        });
+    </script>
 </body>
 
 </html>

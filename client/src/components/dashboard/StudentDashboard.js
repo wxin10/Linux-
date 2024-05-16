@@ -1,32 +1,71 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-function StudentDashboard() {
-    const [courses, setCourses] = useState([]);
+const StudentDashboard = () => {
+  const [courses, setCourses] = useState([]);
+  const [assignments, setAssignments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        // 假设此函数从API获取学生的课程列表
-        const fetchCourses = async () => {
-            const response = await fetch('/api/student/courses');
-            const data = await response.json();
-            setCourses(data);
-        };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const coursesResponse = await axios.get('/api/student/courses');
+        const assignmentsResponse = await axios.get('/api/student/assignments');
+        setCourses(coursesResponse.data);
+        setAssignments(assignmentsResponse.data);
+        setLoading(false);
+      } catch (error) {
+        setError('无法加载学生仪表盘数据，请稍后再试。');
+        setLoading(false);
+      }
+    };
 
-        fetchCourses();
-    }, []);
+    fetchData();
+  }, []);
 
-    return (
-        <div>
-            <h1>Student Dashboard</h1>
-            <h2>Your Courses</h2>
-            <ul>
-                {courses.map(course => (
-                    <li key={course.id}>
-                        {course.title} - Progress: {course.progress}%
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-}
+  if (loading) {
+    return <div>加载中...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  return (
+    <div className="student-dashboard">
+      <h2>学生仪表盘</h2>
+      <div className="courses">
+        <h3>我的课程</h3>
+        {courses.length === 0 ? (
+          <div>没有课程。</div>
+        ) : (
+          <ul>
+            {courses.map(course => (
+              <li key={course.id}>
+                <Link to={`/course/${course.id}`}>{course.title}</Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div className="assignments">
+        <h3>我的作业</h3>
+        {assignments.length === 0 ? (
+          <div>没有作业。</div>
+        ) : (
+          <ul>
+            {assignments.map(assignment => (
+              <li key={assignment.id}>
+                <Link to={`/assignment/${assignment.id}`}>{assignment.title}</Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default StudentDashboard;

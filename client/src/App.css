@@ -1,127 +1,62 @@
-/* App.css - 更加全面和细致的样式表配置 */
-
-/* 重置浏览器的默认边距和内边距 */
-body, html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-}
-
-/* 设定全局字体和背景 */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* 主应用样式 */
+/* 应用级CSS，包含App组件的样式 */
 .App {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: space-between; /* 使头部和脚部固定，内容区域自适应 */
 }
 
-/* 头部和脚部的统一风格设置 */
-header, footer {
-  background-color: #282c34;
-  color: white;
-  padding: 20px 0;
+.header, .footer {
+  background-color: #007bff;
+  color: rgb(0, 0, 0);
+  padding: 10px 0;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+.navbar {
+  margin-bottom: 20px;
 }
 
-footer {
-  text-align: center;
-  font-size: 0.8rem;
+.navbar-brand, .nav-link {
+  color: rgb(0, 0, 0) !important;
 }
 
-/* 导航链接样式 */
-nav a {
-  color: #61dafb;
-  text-decoration: none;
-  padding: 10px 15px;
-  display: inline-block;
-}
-
-nav a:hover {
-  background-color: #555;
-  color: white;
-}
-
-/* 主要内容区域样式 */
-.main {
-  flex: 1; /* 使用flex使得主要内容区域能够填充中间的空间 */
+.course-list, .course-detail, .add-course, .student-dashboard, .teacher-dashboard {
+  background-color: white;
   padding: 20px;
-  width: 90%;
-  max-width: 960px;
-  margin: 20px auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 通用按钮样式 */
-button {
-  background-color: #61dafb;
-  border: none;
-  padding: 10px 20px;
-  color: white;
-  text-transform: uppercase;
-  margin: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
+.course-list h2, .course-detail h2, .add-course h2, .student-dashboard h2, .teacher-dashboard h2 {
+  margin-bottom: 20px;
 }
 
-button:hover {
-  background-color: #21a1f1;
+.error {
+  color: red;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-/* 表单样式 */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box; /* 确保padding不会影响元素的总宽度 */
-}
-
-/* 提示信息和警告信息的样式 */
-.alert {
-  padding: 10px;
-  color: white;
-  background-color: #f44336; /* 红色背景表示警告信息 */
+.form-group {
   margin-bottom: 15px;
 }
 
-.alert-success {
-  background-color: #4CAF50; /* 绿色背景表示成功信息 */
+.form-control {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* 响应式设计：针对小屏设备的样式调整 */
-@media (max-width: 768px) {
-  header, footer {
-    flex-direction: column;
-    text-align: center;
-  }
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  .main {
-    width: 100%;
-    padding: 10px;
-  }
-
-  button {
-    width: 100%; /* 在小屏设备上按钮宽度占满容器 */
-  }
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
 }
